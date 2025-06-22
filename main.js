@@ -7,14 +7,14 @@ var firstResult = document.querySelector(".first-result");
 
 firstForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-
+  
   var firstInputValue = firstInput.value;
   var son = 0;
-
+  
   for (var i = 0;  i < firstInputValue.length; i++) {
     son += parseInt(firstInputValue[i], 10);
   }
-
+  
   firstResult.textContent = "Raqamlar yig'indisi " + son;
 })
 
@@ -22,27 +22,32 @@ firstForm.addEventListener("submit", function (evt) {
 
 // 2-masala 
 
-// var secondForm = document.querySelector(".second-form");
-// var secondInput = document.querySelector(".second-input");
-// var secondBtn = document.querySelector(".second-btn");
-// var secondResult = document.querySelector(".second-result");
+var secondForm = document.querySelector(".second-form");
+var secondInput = document.querySelector(".second-input");
+var secondBtn = document.querySelector(".second-btn");
+var secondResult = document.querySelector(".second-result");
 
-// secondFormForm.addEventListener("submit", function (evt) {
-//   evt.preventDefault();
+secondForm.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+  
+  var secondInputValue = secondInput.value;
 
-//   var secondInputValue = secondInput.value;
-//   var raqam = 0;
+  if (!secondInputValue) {
+    secondResult.textContent = "sonni kiriting : "
+  }
 
-//   for (var b = 0;  b < secondInputValueInputValue.length; b++) {
-//      var currentDigit = parseInt(secondInputValueInputValue[b], 10);
-
-//      if (currentDigit > raqam) {
-//       raqam = currentDigit;
-//      }
-//   }
-
-//   secondResult.textContent = "Eng katta son" + raqam;
-// })
+  var raqam = 0;
+  
+  for (var i = 0;  i < secondInputValue.length; i++) {
+    var currentDigit = parseInt(secondInputValue[i], 10);
+    
+    if (currentDigit > raqam) {
+      raqam = currentDigit;
+    }
+  }
+  
+  secondResult.textContent = "Eng katta son " + raqam;
+})
 
 
 // 3-masala 
@@ -54,16 +59,16 @@ var thirdResult = document.querySelector(".third-result");
 
 thirdForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-
+  
   var thirdInputVAlue = thirdInput.value.trim();
-
+  
   if (!thirdInputVAlue) {
     thirdResult.textContent = "Sonni kiriting !";
     return;
   }
-
+  
   var reversed = thirdInputVAlue.split("").reverse().join("");
-
+  
   thirdResult.textContent = "Teskari son: " + reversed;
 })
 
@@ -76,16 +81,16 @@ var fourthResult = document.querySelector(".fourth-result");
 
 fourthForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-
+  
   var fourthInputValue = fourthInput.value.trim();
-
+  
   if (!fourthInputValue) {
     fourthResult.textContent = "Iltimos son kiriting ";
     return;
   }
-
+  
   var reversed = fourthInputValue.split("").reverse().join("");
-
+  
   if (fourthInputValue === reversed) {
     fourthResult.textContent = "✅ Palindrom: " + fourthInputValue;
   } else {
@@ -102,26 +107,26 @@ var fifthResult = document.querySelector(".fifth-result");
 
 fifthForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-
+  
   var fifthInputValue = fifthInput.value.trim();
-
+  
   if (!fifthInputValue) {
     fifthResult.textContent = "sonni kiriting: ";
     return; 
   }
-
+  
   var addCount = 0;
   var addDigits = [];
-
+  
   for (var i = 0; i < fifthInputValue.length; i++) {
     var digit = parseInt(fifthInputValue[i], 10);
-
+    
     if (digit % 2 === 1) {
       addCount++;
       addDigits.push(digit);
     }
   }
-
+  
   fifthResult.textContent = `Toq raqamlar soni : ${addCount} ta (${addDigits.join(", ")})`;
 })
 
@@ -134,23 +139,23 @@ var sixthResult = document.querySelector(".sixth-result");
 
 sixthForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-
+  
   var sixthInputValue = sixthInput.value.trim();
-
+  
   if (!sixthInputValue) {
     sixthResult.textContent = "Sonni kiriting: ";
     return;
   }
-
-
+  
+  
   var zeroCount = 0;
-
+  
   for (var i = 0; i < sixthInputValue.length; i++) {
-    if (sixthInputValue[i] === 0) {
+    if (sixthInputValue[i] == 0) {
       zeroCount++;
     }
   }
-
+  
   sixthResult.textContent = `0 raqamlar soni ${zeroCount} ta`;
 })
 
@@ -163,16 +168,16 @@ var sevenResult = document.querySelector(".seven-result");
 
 sevenForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-
+  
   var sevenInputValue = sevenInput.value.trim();
-
+  
   if (!sevenInputValue) {
     sevenResult.textContent = "text kiriting: ";
     return;
   }
-
+  
   var length = sevenInputValue.length;
-
+  
   sevenResult.textContent = `Satr uzunligi: ${length} ta`;
 })
 
@@ -186,15 +191,15 @@ var eigthResult = document.querySelector(".eigth-result");
 
 eigthForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-
+  
   var eigthInputValue = eigthInput.value.trim();
-
+  
   if (!eigthInputValue) {
     eigthResult.textContent = "So'zni kiriting";
   }
-
+  
   var kattaText = eigthInputValue.toUpperCase();
-
+  
   eigthResult.textContent = `Katta text ${kattaText}`;
 })
 
@@ -207,22 +212,22 @@ var nineResult = document.querySelector(".nine-result");
 
 nineForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-
+  
   var nineInputValue = nineInput.value.trim().toLowerCase();
-
+  
   if (!nineInputValue) {
     nineResult.textContent = "so'z kiriting : ";
     return;
   }
-
+  
   var aCount = 0;
-
+  
   for (var i = 0; i < nineInputValue.length; i++) {
     if (nineInputValue[i] === 'a') {
       aCount++;
     }
   }
-
+  
   nineResult.textContent = `"a" harfi ${aCount} marta qatnashgan`;
 });
 
@@ -235,15 +240,15 @@ var tenResult = document.querySelector(".ten-result");
 
 tenForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-
+  
   var tenInputValue = tenInput.value.trim();
-
+  
   if (!tenInputValue) {
     tenResult.textContent = "so'zni kiriting : ";
     return;
   }
-
+  
   var reversed = tenInputValue.split("").reverse().join("");
-
+  
   tenResult.textContent = `bu so'zning teskarisi ${reversed}`;
 })
